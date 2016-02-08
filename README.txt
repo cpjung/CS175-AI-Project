@@ -1,0 +1,1 @@
+Install pandas with pip install pandas
