@@ -9,7 +9,15 @@ for d in details:
     rawStr += str(d)
 
 import nltk
-nltk.download('punkt')
+
+def generate_model(cfdist, word, num=15):
+    for i in range(num):
+        print word + " "
+        word = cfdist[word].max()
+
 tokens = nltk.word_tokenize(rawStr)
 text = nltk.Text(tokens)
-print(text.generate(3))
+bigrams = nltk.bigrams(text)
+cfd = nltk.ConditionalFreqDist(bigrams)
+
+generate_model(cfd, 'King')
